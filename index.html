@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Info</title>
+    <link rel="icon" href="img/icon-info.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="time" id="time"></div>
+        <div class="date" id="date"></div>
+        
+        <div class="city">
+            <i title="определить локацию" class="fas fa-map-marker-alt location" id="location"></i>
+            <form class="form" id="form">
+                <input type="search" class="input" id="input" placeholder="enter a city..." required>
+                <button class="btn" type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="weather">
+            <img src="img/weather.png" alt="weather" class="weather-img">
+            <span class="temperature" id="temp"></span>
+            <span id = 'weather-name'></span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="currency">
+            <div class="currency-item">
+                USD: <span class="currency-value" id="usd"></span>
+            </div>
+            <div class="currency-item">
+                EUR: <span class="currency-value" id="eur"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/conditions.js" type="module"></script>
+    <script src="js/script.js" type="module"></script>
+</body>
+</html>
