@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* font-family: 'Segoe UI', system-ui, sans-serif; */
     font-family: Poppins, sans-serif
 }
 
@@ -12,19 +11,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    min-width: 320px;
-    max-width: 350px;
+    padding: 1rem;
+    min-width: 420px;
+    min-height: 510px;
 }
 
 .time {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 300;
     color: #1a1a1a;
     margin-bottom: 0.25rem;
@@ -33,16 +26,24 @@ body {
 .date {
     color: #666;
     margin-bottom: 1.5rem;
+    font-size: 1.1rem;
 }
 
 .city {
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: #2d3436;
+    gap: 8px;
+}
+
+.form{
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 5px;
 }
 
 .weather {
@@ -53,9 +54,14 @@ body {
 }
 
 .temperature {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: 600;
     color: #0b5892;
+}
+
+#weather-name{
+    font-size: 1rem;
+    max-width: 100px;
 }
 
 .currency {
@@ -66,22 +72,24 @@ body {
 
 .currency-item {
     color: #2d3436;
+    font-size: 1.2rem;
 }
 
 .currency-value {
     font-weight: 600;
     color: #00b894;
+    font-size: 1.2rem;
 }
 
 .divider {
     height: 1px;
-    background: #eee;
+    background: #bebdbd;
     margin: 1.5rem 0;
 }
 
 .weather-img{
-    height: 30px;
-    width: 30px;
+    height: 40px;
+    width: 40px;
 }
 
 .location {
@@ -89,28 +97,40 @@ body {
 }
 
 .input{
-    
-    background-color: #f0f4fc;
+    max-width: 250px;
+    background-color: #f0f2f5;
     border: none;
     border-radius: 15px;
-    outline: 1px solid #333;
     padding: 5px 10px;
+    font-size: 19px;
 }
 
 .input:focus{
     outline: 0.1rem solid #1a1a1a;
 }
 
+.btn {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+  
+
+.btn:focus {
+    display: inline;
+    opacity: 1;
+ }
+
 .btn{
     border: none;
     background-color: none;
     cursor: pointer;
     color: #000000;
-    background-color: #e0e0e0;
-    outline: 1px solid rgb(0, 0, 0);
+    background-color: #e6e3e3;
     border-radius: 15px;
-    padding: 4px;
+    padding: 10px 15px;
     transition: 0.2s ease-in;
+    font-size: 15px; ;
 }
 
 .btn:hover {
@@ -120,3 +140,4 @@ body {
 .location {
     cursor: pointer;
 }
+
