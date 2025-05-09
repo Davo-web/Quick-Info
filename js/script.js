@@ -1,10 +1,8 @@
 import conditions from "./conditions.js";
-const baseUrl = 'https://www.cbr-xml-daily.ru/daily_json.js'; //API Банка
+const baseUrl = 'https://www.cbr-xml-daily.ru/daily_json.js';
 const apiKey = 'cdbe5dda072545808d0125020250604';
 let form = document.getElementById('form');
 let input = document.getElementById('input');
-
-
 
 
 const months = [
@@ -12,38 +10,27 @@ const months = [
     'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
 ];
 
-// Функция обновления текущего времени и даты
 function updateTime() {
     const timeElement = document.getElementById('time');
     const dateElement = document.getElementById('date');
 
-    // Получаем текущую дату и время
     let now = new Date();
     let day = now.getDate();
-    let monthIndex = now.getMonth(); // Месяцы отсчитываются от нуля!
+    let monthIndex = now.getMonth();
     let year = now.getFullYear();
     let hours = now.getHours();
     let minutes = now.getMinutes().toString().padStart(2, '0');
 
-    // Собираем строку с месяцем словом
     let dateString = `${day} ${months[monthIndex]} ${year}`;
     let timeString = `${hours}:${minutes}`;
 
-    // Обновляем элемент с текстом
     dateElement.textContent = `${dateString}`;
     timeElement.textContent = `${timeString}`;
 }
 
-// Автоматическое обновление каждые секунды
 setInterval(updateTime, 1000);
 
-// Первоначальная инициализация при загрузке страницы
 window.addEventListener("DOMContentLoaded", () => { updateTime(); });
-
-
-
-
-
 
 
 fetch(baseUrl)
@@ -63,6 +50,7 @@ form.onsubmit = function (e) {
     let city = input.value.trim();
     const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
+    
 
     fetch(url)
         .then((response) => {return response.json()})
@@ -90,11 +78,11 @@ navigator.geolocation.getCurrentPosition(function (position) {
     function getCityByCoordinates(latitude, longitude, callback) {
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
             .then(response => {
-                return response.json();   // Преобразуем тело ответа в объект JSON
+                return response.json();
             })
             .then(data => {
                 let cityName = data.address.city || data.address.town || 'Ошибка';
-                callback(null, cityName); // Возвращаем успешное значение
+                callback(null, cityName);
             })
 
     }
@@ -168,13 +156,32 @@ document.getElementById('location').addEventListener('click', function(erroe, ci
     
         });
     });
-    
 })
 
 
+const btn = document.querySelector('.btn');
 
+let hideTimeout;
 
+input.addEventListener('focus', () => {
+  clearTimeout(hideTimeout);
+  btn.style.visibility = "visible";
+  btn.style.opacity = '1';
+});
 
+input.addEventListener('blur', () => {
+  hideTimeout = setTimeout(() => {
+    btn.style.opacity = '0';
+    setTimeout(() => {
+      btn.style.visibility = "visible";
+    }, 100);
+  }, 100);
+});
 
+document.getElementById('input').addEventListener('focus', function() {
+    this.type = 'search';
+});
 
-
+document.getElementById('input').addEventListener('blur', function() {
+    this.type = 'text';
+});
