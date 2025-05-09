@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- обход блокировки https от http -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Quick Info</title>
     <link rel="icon" href="img/icon-info.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,8 +18,8 @@
         <div class="city">
             <i title="определить локацию" class="fas fa-map-marker-alt location" id="location"></i>
             <form class="form" id="form">
-                <input type="search" class="input" id="input" placeholder="enter a city..." required>
-                <button class="btn" type="submit">Search</button>
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" type="text" class="input" id="input" placeholder="enter a city..." required>
+                <button class="btn" type="submit">🔍</button>
             </form>
         </div>
 
@@ -28,7 +28,7 @@
         <div class="weather">
             <img src="img/weather.png" alt="weather" class="weather-img">
             <span class="temperature" id="temp"></span>
-            <span id = 'weather-name'></span>
+            <div id = 'weather-name'></div>
         </div>
 
         <div class="divider"></div>
